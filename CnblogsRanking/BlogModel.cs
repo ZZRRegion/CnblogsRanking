@@ -8,11 +8,11 @@ namespace CnblogsRanking
 {
     public class BlogModel
     {
-        public string _id { get; set; } = Guid.NewGuid().ToString();
         /// <summary>
         /// 标题内容
         /// </summary>
         public string PostTitle { get; set; }
+        [LiteDB.BsonId]
         /// <summary>
         /// 访问URL
         /// </summary>

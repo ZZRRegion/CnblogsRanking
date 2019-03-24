@@ -67,10 +67,11 @@ namespace CnblogsRanking
             foreach(BlogModel blogModel in blogModels)
             {
                 count++;
-                BlogModel model = liteCollection.FindOne(item => item.PostUrl == blogModel.PostUrl);
+                LiteDB.BsonValue bsonValue = new LiteDB.BsonValue(blogModel.PostUrl);
+                BlogModel model = liteCollection.FindById(bsonValue);
                 if(model == null)
                 {
-                    LiteDB.BsonValue bsonValue = liteCollection.Insert(blogModel);
+                    bsonValue = liteCollection.Insert(blogModel);
                 }
                 else
                 {
@@ -91,10 +92,11 @@ namespace CnblogsRanking
             foreach(KeyValuePair<string, RankModel> itemRank in dict)
             {
                 count++;
-                RankModel model = liteCollection.FindOne(item => item.Name == itemRank.Key);
+                LiteDB.BsonValue bsonValue = new LiteDB.BsonValue(itemRank.Value.Url);
+                RankModel model = liteCollection.FindById(bsonValue);
                 if(model == null)
                 {
-                    LiteDB.BsonValue bsonValue = liteCollection.Insert(itemRank.Value);
+                    bsonValue = liteCollection.Insert(itemRank.Value);
                 }
                 else
                 {

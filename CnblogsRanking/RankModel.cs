@@ -8,12 +8,12 @@ namespace CnblogsRanking
 {
     public class RankModel
     {
-        public string _id { get; set; } = Guid.NewGuid().ToString();
         public string Id { get; set; }
         /// <summary>
         /// 名称
         /// </summary>
         public string Name { get; set; }
+        [LiteDB.BsonId]
         /// <summary>
         /// 主页
         /// </summary>
