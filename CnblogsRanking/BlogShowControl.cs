@@ -12,6 +12,7 @@ namespace CnblogsRanking
 {
     public partial class BlogShowControl : UserControl
     {
+        public CBRank CBRank { get; set; }
         public BlogModel BlogModel { get; set; }
         public BlogShowControl()
         {
@@ -29,6 +30,16 @@ namespace CnblogsRanking
         private void LlblUrl_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
             System.Diagnostics.Process.Start(this.llblUrl.Text);
+        }
+
+        private void BtnLook_Click(object sender, EventArgs e)
+        {
+            FrmWebBrowser frmWebBrowser = new FrmWebBrowser();
+            frmWebBrowser.Url = this.llblUrl.Text;
+            if(frmWebBrowser.ShowDialog(this) == DialogResult.OK)
+            {
+
+            }
         }
     }
 }

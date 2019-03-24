@@ -36,6 +36,7 @@
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
+            this.btnLook = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // lblTitle
@@ -120,11 +121,22 @@
             this.label4.TabIndex = 7;
             this.label4.Text = "地址：";
             // 
+            // btnLook
+            // 
+            this.btnLook.Location = new System.Drawing.Point(3, 147);
+            this.btnLook.Name = "btnLook";
+            this.btnLook.Size = new System.Drawing.Size(75, 23);
+            this.btnLook.TabIndex = 8;
+            this.btnLook.Text = "查看";
+            this.btnLook.UseVisualStyleBackColor = true;
+            this.btnLook.Click += new System.EventHandler(this.BtnLook_Click);
+            // 
             // BlogShowControl
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.Controls.Add(this.btnLook);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label2);
@@ -134,7 +146,7 @@
             this.Controls.Add(this.lblCon);
             this.Controls.Add(this.lblTitle);
             this.Name = "BlogShowControl";
-            this.Size = new System.Drawing.Size(715, 148);
+            this.Size = new System.Drawing.Size(715, 172);
             this.Load += new System.EventHandler(this.BlogShowControl_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -151,5 +163,6 @@
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.Button btnLook;
     }
 }

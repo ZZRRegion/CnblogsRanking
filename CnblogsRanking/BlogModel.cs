@@ -34,5 +34,6 @@ namespace CnblogsRanking
         /// </summary>
         public int Comment { get; set; }
         public string Post { get; set; }
+        public string HtmlContent { get; set; }
     }
 }

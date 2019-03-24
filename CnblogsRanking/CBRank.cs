@@ -57,7 +57,7 @@ namespace CnblogsRanking
             }
             return dict;
         }
-        public void SaveBlogModel(List<BlogModel> blogModels, string collectionName)
+        public async void SaveBlogModel(List<BlogModel> blogModels, string collectionName)
         {
             System.Diagnostics.Stopwatch stopwatch = new System.Diagnostics.Stopwatch();
             stopwatch.Start();
@@ -71,6 +71,8 @@ namespace CnblogsRanking
                 BlogModel model = liteCollection.FindById(bsonValue);
                 if(model == null)
                 {
+                    blogModel.HtmlContent = await this.Get(blogModel.PostUrl);
+                    blogModel.HtmlContent = blogModel.HtmlContent?.RepleaceBrackets()?.Sub();
                     bsonValue = liteCollection.Insert(blogModel);
                 }
                 else
@@ -144,6 +146,11 @@ namespace CnblogsRanking
             List<string> lst = liteDatabase.GetCollectionNames().ToList();
             liteDatabase.Dispose();
             return lst;
+        }
+        public async Task<string> Get(string url)
+        {
+            string result = await this.HttpClient.GetStringAsync(url);
+            return result;
         }
     }
 }

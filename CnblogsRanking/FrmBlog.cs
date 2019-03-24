@@ -33,6 +33,7 @@ namespace CnblogsRanking
             foreach(BlogModel blogModel in lst)
             {
                 BlogShowControl blogShowControl = new BlogShowControl();
+                blogShowControl.CBRank = this.CBRank;
                 blogShowControl.BlogModel = blogModel;
                 this.Controls.Add(blogShowControl);
                 blogShowControl.Location = new Point(20, height);
